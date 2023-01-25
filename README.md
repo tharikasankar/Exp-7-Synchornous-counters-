@@ -46,43 +46,63 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
 
+1.Open a new project using Quartus II. 2.Declare the inputs and outputs inside module projname(). 3.Set the reset value using register. 4.Use commands like begin and end to stimulate the counter. 5.For Up counter increment the count and for Down counter decrement the count. 6.End the verilog programming.
 
-
-### PROGRAM 
-/*
+### PROGRAM FOR UP COUNTER
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+
+
+module de06(input clk,input reset,output[0:3]counter);
+reg[0:3]counter_down;
+always@(posedge clk or posedge reset)
+begin
+if (reset)
+counter_down<=4'd0;
+else 
+counter_down<=counter_down-4'd1;
+end
+assign counter=counter_down;
+endmodule
 
 
 
+### RTL LOGIC UP COUNTER   
+![image](https://user-images.githubusercontent.com/119475507/214650246-733fa380-39b5-4a3c-95fc-718f998677f8.png)
+
+### TIMING DIGRAMS FOR UP COUNTER  
+![image](https://user-images.githubusercontent.com/119475507/214650424-8c36f2b8-5d07-4ab6-8872-ef33585f5809.png)
+
+###TRUTH TABLE
+![image](https://user-images.githubusercontent.com/119475507/214650638-1c29ca75-c98b-4052-87b9-a2f59c9a9929.png)
+
+PROGRAM FOR DOWN COUNTER:
+
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
 
 
+module de06(input clk,input reset,output[0:3]counter);
+reg[0:3]counter_down;
+always@(posedge clk or posedge reset)
+begin
+if (reset)
+counter_down<=4'd0;
+else
+counter_down<=counter_down-4'd1;
+end
+assign counter=counter_down;
+endmodule
 
-### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+### RTL LOGIC DOWN COUNTER 
+![image](https://user-images.githubusercontent.com/119475507/214651320-e2c7902f-d87f-4096-9209-63eeba5653fd.png)
 
 
-
-
-
-
-
-
-
-### TIMING DIGRAMS FOR COUNTER  
-
-
-
+### TIMING DIGRAMS FOR DOWN COUNTER  
+![image](https://user-images.githubusercontent.com/119475507/214651584-8ad390ea-1ac4-4879-802a-63549fdfc9a6.png)
 
 
 ### TRUTH TABLE 
-
-
-
-
-
+![image](https://user-images.githubusercontent.com/119475507/214651687-e8378a25-fd99-4d71-9f4c-7b181db0a9a1.png)
 
 ### RESULTS 
+Hence the Four bit Up counter and Down counter is implemented successfully and its functionality is validated.
